@@ -1,0 +1,12 @@
+body{
+    background-color: rgba(225, 210, 238, 0.664);
+}
+input{
+    text-transform: uppercase;
+}
+td{
+    text-transform: uppercase;
+}
+img{
+    width: 200px;
+}
