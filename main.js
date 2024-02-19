@@ -14,7 +14,7 @@ form.addEventListener('submit', function(e){
     linha = `<tr>`
     linha += `<td>${inputNome.value}</td>`
     linha += `<td>${inputEmail.value}</td>`
-    linha += `<td>${inputTel.value}</td>`
+    linha += `<td>${inputTel.value} <i onclick="deletar()" class="bi bi-trash"></i></td>`
     linha += `</tr>`;
     linhas += linha
 
@@ -27,9 +27,13 @@ form.addEventListener('submit', function(e){
     inputEmail.value = ''
     inputTel.value = ''
 
-
-
-
 })
+
+function deletar(){
+    
+}
+
+
+
 
 

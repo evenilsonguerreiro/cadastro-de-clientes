@@ -1,5 +1,5 @@
 body{
-    background-color: rgba(225, 210, 238, 0.664);
+    background-color: rgba(156, 225, 235, 0.664);
 }
 input{
     text-transform: uppercase;
@@ -9,4 +9,24 @@ td{
 }
 img{
     width: 200px;
+}
+
+@media (max-width:767px){
+    input{
+      margin-bottom: 2%;  
+    }
+    tr{
+        font-size: 10px;
+    }
+    img{
+        width: 100px;
+        
+    }
+    h1{
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    buttom{
+        width: 200px;
+    }
 }
