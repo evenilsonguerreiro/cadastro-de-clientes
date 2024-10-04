@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,53 +9,69 @@
     <link rel="stylesheet" href="styles.css">
     <title>FICHA DE CADASTRO</title>
 </head>
+
 <body>
     <header>
-        <div class="container">
-            <h1 class="text-center">CADASTRAR CLIENTE</h1>
-            <img class="m-0" src="./logo-prefeitura-maracanau-2021_retina.png " alt="">
-            <div class="row">
-                <div class="col-12 mt-3  ">
-                    <form class="  " id="form">
-                        <input class="form-control  " type="text"id="input-Nome" placeholder="Digite seu nome completo" required>
-                        <input class="form-control  " type="email"id="input-Email" placeholder="Digite seu E-mail" required>
-                        <input class="form-control  " type="tel"id="input-Tel" placeholder="Digite seu telefone" required>
-                        <button class="btn btn-dark mt-3 " type="submit">Adicionar</button>
-                        
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
-       <div class="container">
-        <table class="table mt-3 table-info">
-            <thead>
-               <tr>
-                <th>
-                    <i class="bi bi-chat-right-text"></i>
-                    NOME
-                </th>
-                <th>
-                    <i class="bi bi-envelope-at"></i>
-                    E-MAIL
-                </th>
-                <th>
-                    <i class="bi bi-whatsapp"></i>
-                    TELEFONE
-                </th>
-               </tr>
-            </thead>
-            <tbody id="t-body">
-               <tr>
-                <td></td>
-                <td></td>
-                <td>    
-                </td>
-               </tr>
-            </tbody>
-        </table>
-       </div>
-    </header> 
-    <script src="main.js"></script>  
+        <div class="container mt-5">
+            <h1 class="text-center">Tabela de Contatos</h1>
+            <form id="form" class="my-3">
+              <input class="form-control mb-2" type="text" id="input-Nome" placeholder="Digite seu nome completo" required>
+              <input class="form-control mb-2" type="email" id="input-Email" placeholder="Digite seu E-mail" required>
+              <input class="form-control mb-2" type="tel" id="input-Tel" placeholder="Digite seu telefone" required>
+              <button class="btn btn-primary" type="submit">Adicionar</button>
+            </form>
+        
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Telefone</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="t-body">
+                <!-- Linhas adicionadas aqui -->
+              </tbody>
+            </table>
+          </div>
+        
+          <script>
+            const inputNome = document.querySelector('#input-Nome');
+            const inputEmail = document.querySelector('#input-Email');
+            const inputTel = document.querySelector('#input-Tel');
+            const form = document.querySelector('#form');
+            const tbody = document.querySelector('#t-body');
+        
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+        
+              const newRow = document.createElement('tr');
+        
+              newRow.innerHTML = `
+                <td>${inputNome.value}</td>
+                <td>${inputEmail.value}</td>
+                <td>${inputTel.value}</td>
+                <td><button class="btn btn-danger" onclick="deletar(this)">Deletar</button></td>
+              `;
+        
+              tbody.appendChild(newRow);
+        
+              // Limpa os campos do formulário
+              inputNome.value = '';
+              inputEmail.value = '';
+              inputTel.value = '';
+            });
+        
+            function deletar(element) {
+              const row = element.parentNode.parentNode;
+              row.remove();
+            }
+          </script>
+        </body>
+        
+    </header>
+    <script src="main.js"></script>
 </body>
+
 </html>

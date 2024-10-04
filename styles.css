@@ -1,8 +1,9 @@
 body{
-    background-color: rgba(156, 225, 235, 0.664);
+   background-color: rgba(214, 212, 209, 0.685); 
 }
 input{
     text-transform: uppercase;
+    margin-bottom: 5px;
 }
 td{
     text-transform: uppercase;

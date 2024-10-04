@@ -1,39 +1,32 @@
-const inputNome = document.querySelector('#input-Nome')
-const inputEmail = document.querySelector('#input-Email')
-const inputTel = document.querySelector('#input-Tel')
-const form = document.querySelector('#form')
+const inputNome = document.querySelector('#input-Nome');
+const inputEmail = document.querySelector('#input-Email');
+const inputTel = document.querySelector('#input-Tel');
+const form = document.querySelector('#form');
+const tbody = document.querySelector('#t-body');
 
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
 
-let linhas = ''
+  const newRow = document.createElement('tr');
 
+  newRow.innerHTML = `
+    <td>${inputNome.value}</td>
+    <td>${inputEmail.value}</td>
+    <td>${inputTel.value}</td>
+    <td><button class="btn btn-danger" onclick="deletar(this)">Deletar</button></td>
+  `;
 
-form.addEventListener('submit', function(e){
-    e.preventDefault()
+  tbody.appendChild(newRow);
 
+  // Limpa os campos do formulário
+  inputNome.value = '';
+  inputEmail.value = '';
+  inputTel.value = '';
+});
 
-    linha = `<tr>`
-    linha += `<td>${inputNome.value}</td>`
-    linha += `<td>${inputEmail.value}</td>`
-    linha += `<td>${inputTel.value} <i onclick="deletar()" class="bi bi-trash"></i></td>`
-    linha += `</tr>`;
-    linhas += linha
-
-    const tbody = document.querySelector('#t-body')
-    
-    tbody.innerHTML = linhas
-
-
-    inputNome.value = ''
-    inputEmail.value = ''
-    inputTel.value = ''
-
-})
-
-function deletar(){
-    
+function deletar(element) {
+  const row = element.parentNode.parentNode;
+  row.remove();
 }
-
-
-
 
 
